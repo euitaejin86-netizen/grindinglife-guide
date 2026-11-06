@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>프랍 트레이딩 세금 — 실무 정리 · 그라인딩 라이프 프랍 가이드</title>
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="content">
+    <article class="chapter">
+      <h1>프랍 트레이딩 세금 — 실무 정리</h1>
+      <details class="toc"><summary>이 문서의 목차</summary><div class="toc">
+<ul>
+<li><a href="#_1">프랍 트레이딩 세금 — 실무 정리</a><ul>
+<li><a href="#0">0. 한눈에 보기</a></li>
+<li><a href="#1">1. 프랍 수익은 '사업소득'으로 본다</a><ul>
+<li><a href="#_2">비용 처리 (수익·비용 대응 원칙)</a></li>
+<li><a href="#_3">모의투자 단계</a></li>
+<li><a href="#usd-vs">외화(USD) vs 코인</a></li>
+</ul>
+</li>
+<li><a href="#2">2. 신고 주기와 규모별 전략</a><ul>
+<li><a href="#_4">창업감면의 함정</a></li>
+<li><a href="#4">4대보험·국민연금 (직장인 겸업)</a></li>
+</ul>
+</li>
+<li><a href="#3">3. ⚠️ 가장 큰 리스크 — 미신고</a></li>
+<li><a href="#4_1">4. 파생상품·해외선물 양도소득세</a><ul>
+<li><a href="#_5">구조</a></li>
+<li><a href="#_6">★ 주식과 파생은 손익 통산 불가</a></li>
+<li><a href="#_7">세율</a></li>
+<li><a href="#_8">⚠️ '세금 빚' 구조</a></li>
+</ul>
+</li>
+<li><a href="#5">5. 홈택스 신고 절차 (화면 실습)</a></li>
+<li><a href="#6">6. 출금과 법적 지위 — 확인이 필요한 영역</a><ul>
+<li><a href="#_9">출금액은 세금 공제 전 금액</a></li>
+<li><a href="#_10">⚠️ 법적 리스크 — 이건 판단이 갈리는 영역</a></li>
+</ul>
+</li>
+<li><a href="#7">7. ⚠️ 확인 필요 (미해결)</a></li>
+<li><a href="#8-12">8. 수집 영상 12편</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+      
+<blockquote>
+<p>⚠️ <strong>이 문서는 세무 자문이 아닙니다.</strong>
+유튜브에서 공개된 세무사·트레이더 발언을 정리한 것이고, 세율·기한·공제 같은 숫자는 자동 자막 기반이라 오류 가능성이 있습니다. 실제 신고 전에는 <strong>국세청 자료 또는 세무사 확인</strong>이 필요합니다.</p>
+<p><strong>출처</strong>: 유튜브 전사 12편 (2026-11-07 수집) · 원본 전사는 로컬 보관, 이 문서는 요약·링크만 게시합니다.</p>
+</blockquote>
+<hr />
+<h2 id="0">0. 한눈에 보기</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>소득 성격</td>
+<td><strong>사업소득</strong> — 프랍 트레이딩은 '해외 기업에 데이터·정보를 제공하는 용역'으로 판단</td>
+</tr>
+<tr>
+<td>업종</td>
+<td><strong>정보통신업 — 데이터베이스 및 온라인 정보 제공업</strong></td>
+</tr>
+<tr>
+<td>국세청 업종코드</td>
+<td><strong>724000</strong> (6자리) · 표준산업분류(KSIC 11차) 63991</td>
+</tr>
+<tr>
+<td>부가세</td>
+<td><strong>USD 등 외화 수취 시 영세(0%)</strong> / 코인 수취는 10% 과세</td>
+</tr>
+<tr>
+<td>신고 주기</td>
+<td><strong>1월 부가세 · 5월 종합소득세 · 7월 부가세</strong></td>
+</tr>
+<tr>
+<td>기장 권장</td>
+<td>연 5천만 원 이상 / 근로소득과 합산 2~3천만 원부터</td>
+</tr>
+<tr>
+<td>법인 전환</td>
+<td>통상 <strong>연 1억 이상</strong> 검토</td>
+</tr>
+<tr>
+<td>파생상품 양도세</td>
+<td><strong>분류과세 · 10% + 지방세 1% = 11%</strong>, 기본공제 연 250만 원</td>
+</tr>
+<tr>
+<td>최대 리스크</td>
+<td>외화는 <strong>은행이 국세청에 직보고</strong> → 소액이라도 미신고 시 가산세·5년 소급</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1">1. 프랍 수익은 '사업소득'으로 본다</h2>
+<p><strong>출처: 그라인딩 라이프 × 로뎀세무법인 김종석 대표 세무사 인터뷰 2편</strong></p>
+<ul>
+<li>프랍 트레이딩도 <strong>사업 행위</strong>로 판단하며, 통장에 들어오는 매출은 국세청이 더 잘 안다 — <strong>매출은 숨길 수 없다</strong> (출처: [V_s2ag9LuuY 01:23])</li>
+<li>세금 절감의 핵심은 <strong>'매출 − 비용(사업경비)' 구조를 만드는 세무기장</strong> (출처: [01:42])</li>
+<li>업종은 <strong>"데이터 정보 제공"</strong> → 국세청 코드 <strong>724000</strong>, 대분류 정보통신업, 세분류 데이터베이스 및 온라인 정보 제공 (출처: [11:25], [11:34])</li>
+<li>참고: 같은 인터뷰 다른 편에서는 12400으로 언급되지만(출처: [d6_2_13DsTA 07:39]), 국세청 업종코드 조회·홈택스 연계표 기준 <strong>724000</strong>이 맞습니다.</li>
+</ul>
+<h3 id="_2">비용 처리 (수익·비용 대응 원칙)</h3>
+<ul>
+<li><strong>인정 예</strong>: 프랍 응시료(계좌 구매비), 노트북 등 (출처: [V_s2ag9LuuY 04:15], [d6_2_13DsTA 07:51])</li>
+<li>비용 처리를 못 하면 최종 사업이익금의 <strong>8%를 건강보험료로 더 낸다</strong> (출처: [04:59])</li>
+<li><strong>보수적으로 판단할 것</strong>: 의료·건강 케어 비용(사적 경비), 자동차 비용(자택 근무형이면 부인 가능) (출처: [05:52], [06:27])</li>
+</ul>
+<h3 id="_3">모의투자 단계</h3>
+<ul>
+<li>모의투자(가상계좌)로 사고판 행위는 <strong>'매매'로 성립되기 어려워</strong> 양도소득세가 나올 가능성은 없다는 설명 (출처: [12:15])</li>
+<li>다만 모의→라이브 전환 단계의 세금 처리는 <strong>케이스 바이 케이스라 개별 상담 필요</strong> (출처: [d6_2_13DsTA 15:15])</li>
+</ul>
+<h3 id="usd-vs">외화(USD) vs 코인</h3>
+<ul>
+<li>외국 기업에 용역 제공 후 <strong>외화 수취 = 부가세 영세(0%)</strong> — 통화 종류 무관 (출처: [08:54], [10:16])</li>
+<li><strong>코인은 외화로 보지 않아 영세 불인정 → 부가세 10%</strong> (출처: [10:30], [d6_2_13DsTA 13:17])</li>
+</ul>
+<hr />
+<h2 id="2">2. 신고 주기와 규모별 전략</h2>
+<pre><code>1월  부가가치세 신고
+5월  종합소득세 신고
+7월  부가가치세 신고
+</code></pre>
+<p>(출처: [d6_2_13DsTA 02:57])</p>
+<p><strong>아무리 소액이라도</strong> 부가세(1·7월)·소득세(5월) 신고는 반드시 해야 한다 (출처: [V_s2ag9LuuY 13:06]).</p>
+<table>
+<thead>
+<tr>
+<th>규모</th>
+<th>권장</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>소액</td>
+<td>신고만 제대로</td>
+</tr>
+<tr>
+<td>연 2~3천만 원 + 근로소득 합산</td>
+<td><strong>세무기장</strong></td>
+</tr>
+<tr>
+<td>연 5천만 원 이상</td>
+<td>기장 권장</td>
+</tr>
+<tr>
+<td>연 1억 이상</td>
+<td><strong>법인 전환 검토</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">창업감면의 함정</h3>
+<ul>
+<li>적게 25%, 많게 <strong>100%를 소득세에서 5년간 면제</strong> → 세무기장을 해야 적용받기 쉽다 (출처: [02:34])</li>
+<li>⚠️ <strong>사업 개시 시 업종을 처음부터 많이 넣어야</strong> 한다. 나중에 업종을 '추가'하면 <strong>사업 확장으로 보아 감면 제외</strong> → 별도 사업자 등록증 필요 (출처: [19:56], [20:29])</li>
+<li>⚠️ 프랍 업종(데이터·정보 제공)은 <strong>대표자 거주지를 실질 사업장으로 볼 여지가 큰 '맨파워 업종'</strong> 에 걸릴 수 있다. 형식적 주소지로 감면받으면 추징된다 (출처: [mCgFALO7m-A 07:15], [08:22])</li>
+</ul>
+<h3 id="4">4대보험·국민연금 (직장인 겸업)</h3>
+<ul>
+<li><strong>직원이 없으면</strong> 국민연금공단이 회사(직장)로 연락할 이슈가 없다 (출처: [d6_2_13DsTA 04:41])</li>
+<li>문제는 <strong>개인사업장에 4대보험 직원이 있을 때</strong> 발생 (출처: [04:14])</li>
+<li>월 급여 약 <strong>637만 원</strong>이 국민연금 상한선 → 양쪽 합산이 넘으면 공단이 확인 (출처: [04:57])</li>
+</ul>
+<hr />
+<h2 id="3">3. ⚠️ 가장 큰 리스크 — 미신고</h2>
+<p><strong>출처: d6_2_13DsTA (세금 Q&amp;A 2편)</strong></p>
+<ul>
+<li>과거 유튜버 에드센스 수익을 <strong>소액이라며 미신고</strong>한 사례가 2~3년 후 <strong>대대적 세무조사로 적발</strong> (출처: [00:35], [01:02])</li>
+<li><strong>외화 송금(달러 입금)은 은행이 국세청에 실시간 보고</strong> — 프랍도 '미국계 기업에 용역 제공 → 달러 수취' 구조로 동일한 위험 (출처: [01:24], [01:14])</li>
+<li>국세청 안내문에 안 찍혀도 통장에 달러가 들어와 있으면 <strong>자진 신고 대상</strong> (출처: [01:37])</li>
+<li>국세청은 <strong>패턴을 묶어두었다가 나중에 꺼내며</strong>, 이때 가산세가 붙는다 (출처: [02:09])</li>
+<li>가산세 <strong>연 8%·과세기간 5년</strong> (출처: [02:23]) → 구체 요율은 확인 필요</li>
+<li><strong>국세청 채권은 파산·회생으로도 소멸하지 않는다</strong> (출처: [14:51])</li>
+</ul>
+<hr />
+<h2 id="4_1">4. 파생상품·해외선물 양도소득세</h2>
+<h3 id="_5">구조</h3>
+<ul>
+<li>파생상품(CFD 등)과 <strong>국내·해외선물</strong>은 <strong>양도소득으로 분류과세</strong> → 다른 종합소득과 합산하지 않고 <strong>단일 세율</strong> 적용 (출처: [4gpIdmEeofQ 01:47])</li>
+<li>모든 파생상품이 과세 대상은 아니고 <strong>일부(CFD 포함)</strong> 에 부과 (출처: [01:26])</li>
+<li><strong>기본공제 연 250만 원</strong> (출처: [02:32], [-2coDTlGJzU 01:12])</li>
+<li>신고·납부는 <strong>홈택스 전자신고</strong> (출처: [_V2tydyC-XI 03:45])</li>
+</ul>
+<h3 id="_6">★ 주식과 파생은 손익 통산 불가</h3>
+<ul>
+<li>해외주식·파생 모두 <strong>5월 확정신고</strong>지만 <strong>각각 별도 신고서</strong> (출처: [-2coDTlGJzU 00:16], [00:33])</li>
+<li><strong>한쪽 이익·다른 쪽 손실이어도 통산 불가</strong> (출처: [03:24])</li>
+<li>기본공제 250만 원도 <strong>주식·파생 각각</strong> 받는다 (출처: [01:12])</li>
+<li>반면 <strong>국내선물 ↔ 해외선물은 같은 '파생' 그룹으로 통산 가능</strong> (출처: [_V2tydyC-XI 05:07])
+  → 즉 <code>주식 그룹(국내+해외주식)</code> vs <code>파생 그룹(국내+해외선물)</code> 의 <strong>그룹 경계</strong> 차이</li>
+<li>통산이 가능한 제도는 <strong>금융투자소득세</strong>였는데 <strong>폐지</strong>됨 (출처: [-2coDTlGJzU 03:47])</li>
+</ul>
+<h3 id="_7">세율</h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>파생상품 양도소득 (지방세 포함)</td>
+<td><strong>11%</strong> (10% + 지방소득세 1%)</td>
+</tr>
+<tr>
+<td>해외주식 양도소득 (지방세 포함)</td>
+<td>22%</td>
+</tr>
+<tr>
+<td>금융소득 원천징수</td>
+<td>15.4% (연 2천만 원 초과 시 종합과세)</td>
+</tr>
+<tr>
+<td>기본공제</td>
+<td>연 250만 원</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>전사 12편 전체에서 <strong><code>11%</code> 15회 vs <code>12%</code> 2회</strong> → <strong>11%가 정본</strong>, 12%는 자막 오인식</li>
+<li>계산 예시: 원금 10억 × 5% = 5천만 원 수익 → (5,000만 − 250만) × 11% ≒ <strong>520만 원</strong> (출처: [4gpIdmEeofQ 02:14])</li>
+<li>파생 양도소득은 <strong>건강보험료 산정에 반영되지 않는다</strong> (출처: [04:39])</li>
+</ul>
+<h3 id="_8">⚠️ '세금 빚' 구조</h3>
+<ul>
+<li>이익이 난 해에 세금이 확정되는데 <strong>납부는 다음 해 5월</strong> → 그 사이 매매로 손실이 나도 <strong>이미 확정된 세금은 그대로 남는다</strong> (출처: [RbtE_TJdV8Y 04:52])</li>
+<li>"작년에 벌고 올해 5월 전에 그 돈을 다 잃으면 <strong>세금만 남고 전 재산을 잃는다</strong>" (출처: [GFGj7Z-HGeI 05:14])</li>
+</ul>
+<hr />
+<h2 id="5">5. 홈택스 신고 절차 (화면 실습)</h2>
+<p><strong>출처: GFGj7Z-HGeI (시설치료사 파과장, 2024-05-25)</strong> — 자동 자막이 없어 로컬 STT로 전사한 영상이라 숫자·용어 오류 가능성이 가장 높습니다. <strong>절차 이해용</strong>으로만 보세요.</p>
+<ol>
+<li>국세청 홈택스 로그인 → <code>세금신고</code> → <code>양도소득세 신고</code></li>
+<li><code>확정신고</code> → <strong><code>정기신고</code></strong></li>
+<li><strong><code>국내 파생상품</code></strong> 선택 → 양도년월일 지정 (2023년 수익분 → 2024년 5월 신고)</li>
+<li>신상명세 확인 → 저장 후 다음 이동</li>
+<li><strong>계산명세 → 조회</strong> → 해당 연도 매매내역 자동 표시
+   - ★ "증권사에서 이미 국세청으로 자료를 다 보내놓은 겁니다. 나의 의지와 상관없어… <strong>탈세를 할 수가 없어요</strong>"</li>
+<li>전체 선택 → 자동 계산 → 양도소득 금액 합계 확인</li>
+<li>기본공제 <strong>250만 원</strong> 적용, 초과분 <strong>10% + 지방세 1% = 11%</strong></li>
+<li><code>등록</code> → 신고서 제출 (<strong>분할 납부 가능</strong>)</li>
+<li>납부 → 계좌이체</li>
+<li><strong>개인 지방소득세는 별도 신고</strong> — <code>지방소득세 신고</code> → <strong>위택스</strong>에서 1% 추가 납부</li>
+<li>잘못 신고했으면 <strong>경정청구</strong>로 수정 가능</li>
+</ol>
+<hr />
+<h2 id="6">6. 출금과 법적 지위 — 확인이 필요한 영역</h2>
+<h3 id="_9">출금액은 세금 공제 전 금액</h3>
+<ul>
+<li><strong>"출금되는 금액은 세금을 공제하기 전 금액이기 때문에 해당 수익에 대한 신고와 세금 납부는 본인이 직접 처리해야 한다. 회사가 대신 세금을 처리해 주는 것이 아니다"</strong> (출처: [Xy4rNpkBp3w 03:24])</li>
+<li>출금 완료 후에도 규정 위반이 발견되면 <strong>환수 또는 다음 출금액 차감</strong> (출처: [03:01])</li>
+</ul>
+<h3 id="_10">⚠️ 법적 리스크 — 이건 판단이 갈리는 영역</h3>
+<ul>
+<li>해외 회사에 선물 트레이딩을 중계·제공하는 구조는 <strong>자본시장법 위반 소지</strong>가 있다는 법률 검토가 소개됨 (출처: [GUEp5L9s9MQ 00:40])</li>
+<li>국내 업체가 응시료를 받고 <strong>실체결 없이 시뮬레이션</strong>하는 형태는:</li>
+<li>투자금을 받아 운영 → <strong>유사수신행위 규제 위반</strong> 가능성</li>
+<li>마진거래 중계 → <strong>무등록 금융투자업</strong> 문제</li>
+<li>평가비만으로 손익 청산 → 형법상 <strong>도박 또는 사기</strong> 평가 여지</li>
+<li>(출처: [03:02], [03:11], [03:16])</li>
+<li>선례로 시뮬레이션 계좌 개설·참가자 모두 도박죄 유죄 사례가 언급됨 — <strong>사건번호·연도는 확인 필요</strong> (출처: [03:41])</li>
+<li>해외에서 프랍 수익을 인출하면 <strong>외환 관련법</strong> 문제 가능성 언급 (출처: [04:23]) → 구체 법령 확인 필요</li>
+<li>미국 회사는 출금 시 <strong>용역 업체를 끼고</strong> 국내 은행으로 송금하는 경로가 소개됨 (출처: [iIHm-yIB87c 11:04])</li>
+</ul>
+<blockquote>
+<p>⚠️ 이 영역은 유튜버·법무법인 의견이 엇갈리는 사안으로, <strong>개별 사안에 대한 법률 검토 없이 단정할 수 없습니다.</strong> 이 문서는 소개된 주장을 정리한 것이며 판단하지 않습니다.</p>
+</blockquote>
+<hr />
+<h2 id="7">7. ⚠️ 확인 필요 (미해결)</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>쟁점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>소득 구분</td>
+<td>영상은 '사업소득(업종=데이터 제공)'으로 전개하나 <strong>'사업소득 vs 기타소득'을 명시적으로 구분한 진술은 12편 전체에 없음</strong></td>
+</tr>
+<tr>
+<td>원천징수</td>
+<td>프랍 회사가 원천징수를 하는지 명시 진술 없음</td>
+</tr>
+<tr>
+<td>해외 수령금 과세</td>
+<td>해외 프랍펌 수령금의 과세 방식·신고 방법 직접 언급 없음</td>
+</tr>
+<tr>
+<td>외환</td>
+<td>해외 인출 시 문제되는 구체 법령 미명시</td>
+</tr>
+<tr>
+<td>가산세</td>
+<td>'연 8%·5년 소급' 수치는 통상 가산세 구조와 다름</td>
+</tr>
+<tr>
+<td>창업감면</td>
+<td>25~100%·5년·연 한도 수치 — 구두 언급</td>
+</tr>
+<tr>
+<td>세율</td>
+<td>파생 11%는 다수 일치. '법정 22% → 탄력세율 11%'의 근거 조문 미제시</td>
+</tr>
+<tr>
+<td>4대보험 요율</td>
+<td>건강보험 8%·국민연금 9%·월 상한 637만 원 — 자막 기준</td>
+</tr>
+<tr>
+<td>법인 세율</td>
+<td>법인 10%/11% vs 개인 35%/38% — 자막 기준</td>
+</tr>
+<tr>
+<td>고유명사</td>
+<td>자막 표기 신뢰도 낮음 (회사명·법무법인명)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-12">8. 수집 영상 12편</h2>
+<table>
+<thead>
+<tr>
+<th>채널</th>
+<th>업로드</th>
+<th>제목</th>
+<th>링크</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>그라인딩 라이프</td>
+<td>2026-06-30</td>
+<td>프랍트레이딩 세금, 출금 전에 반드시 알아야 합니다 | 세금 Q&amp;A 2편</td>
+<td><a href="https://youtu.be/d6_2_13DsTA">d6_2_13DsTA</a></td>
+</tr>
+<tr>
+<td>그라인딩 라이프</td>
+<td>2026-04-24</td>
+<td>프랍 트레이딩 세금 이렇게 내면 무조건 손해봅니다</td>
+<td><a href="https://youtu.be/V_s2ag9LuuY">V_s2ag9LuuY</a></td>
+</tr>
+<tr>
+<td>메리츠증권 Tax365</td>
+<td>2024-02-26</td>
+<td>세무사와 함께 알아보는 파생상품 세금 + 2가지 절세 팁</td>
+<td><a href="https://youtu.be/4gpIdmEeofQ">4gpIdmEeofQ</a></td>
+</tr>
+<tr>
+<td>송세무사의 구실이야기</td>
+<td>2025-03-01</td>
+<td>해외주식과 파생상품 양도소득세: 손익 통산 불가능</td>
+<td><a href="https://youtu.be/-2coDTlGJzU">-2coDTlGJzU</a></td>
+</tr>
+<tr>
+<td>시설치료사 파과장</td>
+<td>2023-12-25</td>
+<td>파생양도소득세 국내최초 3년 연속인증</td>
+<td><a href="https://youtu.be/RbtE_TJdV8Y">RbtE_TJdV8Y</a></td>
+</tr>
+<tr>
+<td>시설치료사 파과장</td>
+<td>2024-05-25</td>
+<td>파생상품양도소득세 신고 및 납부 방법</td>
+<td><a href="https://youtu.be/GFGj7Z-HGeI">GFGj7Z-HGeI</a></td>
+</tr>
+<tr>
+<td>리온인베스트먼트</td>
+<td>2020-08-07</td>
+<td>해외선물로 수익 나면 세금 내야 하나요? [4강]</td>
+<td><a href="https://youtu.be/_V2tydyC-XI">_V2tydyC-XI</a></td>
+</tr>
+<tr>
+<td>해외선물정복하기</td>
+<td>2023-11-20</td>
+<td>해외선물 세금을 알아두자 (세금 내용 없음)</td>
+<td><a href="https://youtu.be/VNhoxc773MQ">VNhoxc773MQ</a></td>
+</tr>
+<tr>
+<td>로뎀세무법인</td>
+<td>2026-04-27</td>
+<td>창업감면 받았는데 세금폭탄? 국세청 실제 적발 사례</td>
+<td><a href="https://youtu.be/mCgFALO7m-A">mCgFALO7m-A</a></td>
+</tr>
+<tr>
+<td>해선의 정석</td>
+<td>2026-09-09</td>
+<td>프랍트레이딩 시작하기 전 반드시 확인할 6가지 (법적고지)</td>
+<td><a href="https://youtu.be/Xy4rNpkBp3w">Xy4rNpkBp3w</a></td>
+</tr>
+<tr>
+<td>HOON_chart</td>
+<td>2026-08-31</td>
+<td>프랍트레이딩 불법 VS 합법</td>
+<td><a href="https://youtu.be/GUEp5L9s9MQ">GUEp5L9s9MQ</a></td>
+</tr>
+<tr>
+<td>제이 트레이더</td>
+<td>2025-07-07</td>
+<td>TOP 4 프랍 회사별 가격·출금·룰 완벽 분석</td>
+<td><a href="https://youtu.be/iIHm-yIB87c">iIHm-yIB87c</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>수집·정리</strong>: 2026-11-07 · 전사 수집 방법은 <code>youtube-transcript-crawler</code> 절차를 따랐습니다.</p>
+    </article>
+    <nav class="pager"><a class="navlink prev" href="community.html"><span>이전</span><strong>커뮤니티·자유게시판</strong></a></nav>
+    <footer class="foot">자료: 네이버 카페 '그라인딩 라이프' 전수 수집(글 21,355·댓글 64,320) · 인용 검증 완료 · 그라인딩 라이프 프랍 가이드</footer>
+  </main>
+</div>
+<script src="../assets/nav.js"></script>
+</body></html>
